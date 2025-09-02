@@ -1,5 +1,5 @@
 # Ambit
-Built this because I wanted a replacement for my sticky note task management system. Command-based input. 
+A replacement for my sticky note task management system. Command-based input. 
 
 ## Commands
 #### Categories
