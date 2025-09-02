@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let showCompletedTasks = true;
     let categoryOrder = [];
 
-    const themes = ["Light", "Dark", "Solarized Light", "Solarized Dark", "Nord", "Gruvbox", "Monokai", "Dracula", "Material Light", "Material Dark", "GitHub Light", "GitHub Dark"];
+    const themes = ["Light", "Dark", "Solarized Light", "Solarized Dark", "Nord", "Gruvbox", "Monokai", "Dracula", "Material Light", "Material Dark", "GitHub Light", "GitHub Dark", "Catppuccin", "Tokyo Night", "Everforest"];
 
     // --- Theme Handling ---
     const selectedThemeDiv = themeSelectorContainer.querySelector('.select-selected');

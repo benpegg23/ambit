@@ -82,6 +82,27 @@ body[data-theme="github-dark"] {
     --highlight-color: #161b22;
 }
 
+body[data-theme="catppuccin"] {
+    --bg-color: #1e1e2e;
+    --text-color: #cdd6f4;
+    --border-color: #b4befe;
+    --highlight-color: #313244;
+}
+
+body[data-theme="tokyo-night"] {
+    --bg-color: #1a1b26;
+    --text-color: #a9b1d6;
+    --border-color: #bb9af7;
+    --highlight-color: #292e42;
+}
+
+body[data-theme="everforest"] {
+    --bg-color: #2b3339;
+    --text-color: #d3c6aa;
+    --border-color: #a7c080;
+    --highlight-color: #414b50;
+}
+
 
 body {
     font-family: monospace;
