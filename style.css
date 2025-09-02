@@ -1,0 +1,351 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --highlight-color: #e0e0e0;
+}
+
+body[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --border-color: #ffffff;
+    --highlight-color: #333333;
+}
+
+body[data-theme="solarized-light"] {
+    --bg-color: #fdf6e3;
+    --text-color: #657b83;
+    --border-color: #586e75;
+    --highlight-color: #eee8d5;
+}
+
+body[data-theme="solarized-dark"] {
+    --bg-color: #002b36;
+    --text-color: #839496;
+    --border-color: #93a1a1;
+    --highlight-color: #073642;
+}
+
+body[data-theme="nord"] {
+    --bg-color: #2e3440;
+    --text-color: #d8dee9;
+    --border-color: #4c566a;
+    --highlight-color: #3b4252;
+}
+
+body[data-theme="gruvbox"] {
+    --bg-color: #282828;
+    --text-color: #ebdbb2;
+    --border-color: #a89984;
+    --highlight-color: #3c3836;
+}
+
+body[data-theme="monokai"] {
+    --bg-color: #272822;
+    --text-color: #f8f8f2;
+    --border-color: #f92672;
+    --highlight-color: #3e3d32;
+}
+
+body[data-theme="dracula"] {
+    --bg-color: #282a36;
+    --text-color: #f8f8f2;
+    --border-color: #bd93f9;
+    --highlight-color: #44475a;
+}
+
+body[data-theme="material-light"] {
+    --bg-color: #eceff1;
+    --text-color: #263238;
+    --border-color: #546e7a;
+    --highlight-color: #cfd8dc;
+}
+
+body[data-theme="material-dark"] {
+    --bg-color: #263238;
+    --text-color: #eceff1;
+    --border-color: #90a4ae;
+    --highlight-color: #37474f;
+}
+
+body[data-theme="github-light"] {
+    --bg-color: #ffffff;
+    --text-color: #24292e;
+    --border-color: #d1d5da;
+    --highlight-color: #f6f8fa;
+}
+
+body[data-theme="github-dark"] {
+    --bg-color: #0d1117;
+    --text-color: #c9d1d9;
+    --border-color: #30363d;
+    --highlight-color: #161b22;
+}
+
+
+body {
+    font-family: monospace;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: var(--bg-color);
+}
+
+header div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+header div button {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-family: monospace;
+    color: var(--text-color);
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-content: flex-start;
+    overflow-y: auto;
+}
+
+.category {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    width: 300px;
+    height: fit-content;
+}
+
+.category h2 {
+    margin-top: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category li {
+    padding: 0.25rem 0;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes flashAndFade {
+    0% { background-color: var(--highlight-color); }
+    100% { background-color: transparent; }
+}
+
+.task-completing {
+    animation: flashAndFade 1s ease;
+}
+
+.completed-task {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.date-highlight {
+    font-weight: bold;
+    background-color: var(--highlight-color);
+}
+
+footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    background-color: var(--bg-color);
+}
+
+#prompt-container {
+    display: flex;
+    align-items: center;
+}
+
+#prompt-container span {
+    margin-right: 0.5rem;
+}
+
+#prompt-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+#settings-menu {
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    z-index: 10;
+    background-color: var(--bg-color);
+}
+
+.settings-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: monospace;
+}
+
+.settings-item label {
+    width: 100px;
+}
+
+.custom-select {
+    position: relative;
+    width: 120px;
+}
+
+.select-selected {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: var(--text-color) transparent transparent transparent;
+}
+
+.select-items {
+    position: absolute;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div {
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.select-items div:hover {
+    background-color: var(--highlight-color);
+}
+
+.settings-item select {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: monospace;
+    padding: 0.25rem 0.5rem;
+    width: 120px;
+    line-height: 1.5;
+}
+
+.settings-item select option {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.settings-item:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.settings-item button {
+    background: none;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    width: 120px; /* Increased width for longer theme names */
+    text-align: center;
+    font-family: monospace;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+#prompt, #prompt-hint {
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-family: monospace;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+#prompt {
+    position: relative;
+    z-index: 2;
+}
+
+#prompt-hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: #888;
+    pointer-events: none;
+}
+
+.hidden {
+    display: none;
+}
+
+#help-section {
+    padding: 0 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#help-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+#help-section ul {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+#help-section code {
+    font-weight: bold;
+}

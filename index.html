@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ambit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+
+    <header>
+        <h1>ambit</h1>
+        <div>
+            <button id="settings-toggle">settings</button>
+            <button id="help-toggle">?</button>
+        </div>
+    </header>
+
+    <div id="settings-menu" class="hidden">
+        <div class="settings-item">
+            <label for="theme-selector">Theme</label>
+            <div id="theme-selector" class="custom-select">
+                <div class="select-selected"></div>
+                <div class="select-items select-hide"></div>
+            </div>
+        </div>
+        <div class="settings-item">
+            <label for="hint-toggle">Hints</label>
+            <button id="hint-toggle">On</button>
+        </div>
+        <div class="settings-item">
+            <label for="toggle-completed-tasks">Completed</label>
+            <button id="toggle-completed-tasks">Show</button>
+        </div>
+    </div>
+
+    <section id="help-section" class="hidden">
+        <h2>Commands</h2>
+        <ul>
+            <li><code>+ [name]</code> - Create category</li>
+            <li><code>@ [name]</code> - Focus category</li>
+            <li><code>- [name]</code> - Delete category</li>
+            <li><code>pin [name]</code> - Toggle pin</li>
+            <li><code>rn [old] -> [new]</code> - Rename category</li>
+            <li><code>order [name] ![up|down|top|bottom]</code> - Reorder categories/tasks</li>
+        </ul>
+        <h2>Tasks (in focused category)</h2>
+        <ul>
+            <li><code>[task text]</code> - Add task</li>
+            <li><code>done [text]</code> - Mark task complete</li>
+            <li><code>undo [text]</code> - Mark task incomplete</li>
+            <li><code>del [text]</code> - Delete task</li>
+            <li><code>ed [old] -> [new]</code> - Edit task text</li>
+            <li><code>mv [text] -> [cat]</code> - Move task</li>
+            <li><code>dup [text]</code> - Duplicate task</li>
+        </ul>
+        <h2>Date & Time</h2>
+        <ul>
+            <li>Append <code>by [phrase]</code> to add a due date.</li>
+            <li>Quick shortcuts: <code>!today</code>, <code>!fri</code>, <code>!saturday</code></li>
+            <li>Recurring: <code>every mon [task]</code>, <code>every 2w [task]</code></li>
+            <li>Snooze: <code>snooze [text] -> [+3d]</code></li>
+            <li>Examples: <code>in 2 biz days</code>, <code>next friday at 5pm</code>, <code>eom</code>, <code>+3d</code></li>
+        </ul>
+        <h2>Shortcuts</h2>
+        <ul>
+            <li><code>Tab</code> - Autocomplete commands</li>
+            <li><code>Up/Down Arrow</code> - Command history</li>
+        </ul>
+    </section>
+
+    <main id="categories-container">
+        <!-- Categories will be dynamically inserted here -->
+    </main>
+
+    <footer>
+        <div id="prompt-container">
+            <span>&gt;</span>
+            <div id="prompt-wrapper">
+                <input type="text" id="prompt-hint" readonly tabindex="-1">
+                <input type="text" id="prompt" placeholder="type a command..." autocomplete="off">
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
